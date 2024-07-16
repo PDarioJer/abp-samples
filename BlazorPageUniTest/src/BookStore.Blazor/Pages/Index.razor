@@ -1,8 +1,10 @@
 ﻿@page "/"
+@using BookStore.Localization
 @using Volo.Abp.MultiTenancy
 @inherits BookStoreComponentBase
 @inject ICurrentTenant CurrentTenant
 @inject AuthenticationStateProvider AuthenticationStateProvider
+@inject AbpBlazorMessageLocalizerHelper<BookStoreResource> LH
 <div class="container">
     <div class="p-5 text-center">
         <Badge Color="Color.Success" class="mb-4">
