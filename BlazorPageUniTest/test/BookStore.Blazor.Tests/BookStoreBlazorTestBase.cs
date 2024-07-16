@@ -21,7 +21,9 @@ public abstract class BookStoreBlazorTestBase : BookStoreTestBase<BookStoreBlazo
     {
         var testContext = new TestContext();
         var blazorise = testContext.JSInterop.SetupModule("./_content/Blazorise/utilities.js?v=1.5.1.0");
+        var textEdit = testContext.JSInterop.SetupModule("./_content/Blazorise/textEdit.js?v=1.5.1.0");
         blazorise.SetupVoid("log", _ => true);
+        textEdit.SetupVoid("log", _ => true);
 
         testContext.Services.UseServiceProviderFactory(serviceCollection =>
         {

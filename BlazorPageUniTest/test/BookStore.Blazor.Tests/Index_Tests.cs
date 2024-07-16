@@ -9,13 +9,17 @@ namespace BookStore.Blazor.Tests;
 
 public class Index_Tests : BookStoreBlazorTestBase
 {
+    protected override void AfterAddApplication(IServiceCollection services)
+    {
+        services.AddSingleton<AbpBlazorMessageLocalizerHelper<BookStoreResource>>();
+        base.AfterAddApplication(services);
+    }
+
     [Fact]
     public void Index_Test()
     {
         // Arrange
         var ctx = CreateTestContext();
-        var lh = GetRequiredService<AbpBlazorMessageLocalizerHelper<BookStoreResource>>();
-        ctx.Services.AddSingleton(lh);
 
         // Act
         var cut = ctx.RenderComponent<BookStore.Blazor.Pages.Index>();
